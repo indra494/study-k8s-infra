@@ -10,4 +10,4 @@ images:
     newTag: d5619d6ed2b4574faf608a3f3b247249b74e0b7e
   - name: engame-front
     newName: 654654563866.dkr.ecr.ap-northeast-2.amazonaws.com/usb-dev-engame-front
-    newTag: 2921feb0d952528d58cd7e6c728ceefe80b70b1c
+    newTag: a9fc5b290b8dc17075c3c914069b84004b1f153d
