@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: engame-front
+  labels:
+    app: engame-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: engame-front
+  template:
+    metadata:
+      labels:
+        app: engame-front
+    spec:
+      containers:
+        - name: engame-front
+          image: engame-front
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80

@@ -1,0 +1,21 @@
+# Terraform
+**/.terraform/
+**/.terragrunt-cache/
+*.tfstate
+*.tfstate.backup
+*.tfplan
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# AWS 자격증명 - 절대 커밋 금지
+terraform_user_accessKeys*.csv
+*.pem
+.env
+
+# OS / editor
+.DS_Store
+.idea/

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: engame-api
+  labels:
+    app: engame-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: engame-api
+  template:
+    metadata:
+      labels:
+        app: engame-api
+    spec:
+      containers:
+        - name: engame-api
+          image: engame-api
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_HOST
+              value: "usb-dev-rds.c3ukkso4igfj.ap-northeast-2.rds.amazonaws.com"
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_NAME
+              value: "usb_db"
+            - name: DB_USERNAME
+              value: "admin"
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: engame-db-credentials
+                  key: password
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /api/leaderboard
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/leaderboard
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 20
