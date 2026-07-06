@@ -5,7 +5,7 @@ metadata:
   labels:
     app: engame-front
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: engame-front
