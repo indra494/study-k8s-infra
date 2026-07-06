@@ -7,7 +7,7 @@ resources:
 images:
   - name: engame-api
     newName: 654654563866.dkr.ecr.ap-northeast-2.amazonaws.com/usb-dev-engame-api
-    newTag: latest
+    newTag: d5619d6ed2b4574faf608a3f3b247249b74e0b7e
   - name: engame-front
     newName: 654654563866.dkr.ecr.ap-northeast-2.amazonaws.com/usb-dev-engame-front
     newTag: ef4b345d6e9b1e3b4efcf5179da46869121ca49a
